@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SYNTH — Премиальные ПК под заказ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="header header-raycast">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="header-inner">
+        <a class="navbar-brand logo" href="index.html">SYNTH</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#headerNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="headerNav">
+          <div class="navbar-nav">
+            <a class="nav-link active" href="index.html">Главная</a>
+            <a class="nav-link" href="catalog.html">Каталог</a>
+            <a class="nav-link" href="configurator.html">Конфигуратор</a>
+            <a class="nav-link" href="faq.html">FAQ</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content container-1440">
+      <h1 class="hero-title animate-title">Ваш shortcut к идеальному ПК.</h1>
+      <p class="hero-subtitle">Готовые сборки и конфигуратор под игры, стриминг и работу. Гарантия, доставка, рассрочка.</p>
+      <a href="catalog.html" class="hero-cta">Смотреть каталог</a>
+    </div>
+  </section>
+
+  <section class="value-props py-5">
+    <div class="container-1440">
+      <div class="row g-4 justify-content-center text-center">
+        <div class="col-6 col-md-3">
+          <div class="value-prop">
+            <div class="value-prop-title">Гарантия</div>
+            <div class="value-prop-desc">12 месяцев на сборку</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="value-prop">
+            <div class="value-prop-title">Сроки</div>
+            <div class="value-prop-desc">Сборка за 3–5 дней</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="value-prop">
+            <div class="value-prop-title">Рассрочка</div>
+            <div class="value-prop-desc">Без переплат</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="value-prop">
+            <div class="value-prop-title">Доставка</div>
+            <div class="value-prop-desc">По всей России</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="advantages py-5" id="advantages">
+    <div class="container-1440">
+      <h2 class="section-title text-center mb-2">Почему SYNTH</h2>
+      <p class="text-center text-muted mb-5">Всё необходимое для заказа премиального ПК в одном месте.</p>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card advantage-card tilt-card" data-tilt>
+            <div class="card-body">
+              <div class="advantage-icon">◆</div>
+              <h3 class="card-title">Гарантия</h3>
+              <p class="card-text">12 месяцев на сборку. Полная гарантия производителя на комплектующие.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card advantage-card tilt-card" data-tilt>
+            <div class="card-body">
+              <div class="advantage-icon">◇</div>
+              <h3 class="card-title">Сроки</h3>
+              <p class="card-text">Сборка за 3–5 дней. Доставка по России от 2 до 7 дней.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card advantage-card tilt-card" data-tilt>
+            <div class="card-body">
+              <div class="advantage-icon">◈</div>
+              <h3 class="card-title">Рассрочка</h3>
+              <p class="card-text">Без переплат на 3, 6 или 12 месяцев. Условия уточняйте при заказе.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="popular-builds py-5">
+    <div class="container-1440">
+      <h2 class="section-title text-center mb-2">Готовые сборки</h2>
+      <p class="text-center text-muted mb-5">Популярные конфигурации. Выберите и оформите заказ в один клик.</p>
+      <div id="buildsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row g-4 justify-content-center">
+              <div class="col-sm-6 col-lg-4">
+                <div class="card build-card">
+                  <div class="card-body">
+                    <span class="build-badge">Топ</span>
+                    <h3 class="card-title">Gaming Pro</h3>
+                    <p class="card-text text-muted">RTX 4090 + i9-14900K</p>
+                    <p class="build-price">450 000 ₽</p>
+                    <a href="catalog.html" class="btn btn-synth btn-sm w-100">В каталог</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4">
+                <div class="card build-card">
+                  <div class="card-body">
+                    <h3 class="card-title">Gaming</h3>
+                    <p class="card-text text-muted">RTX 4080 + i7-14700K</p>
+                    <p class="build-price">280 000 ₽</p>
+                    <a href="catalog.html" class="btn btn-synth btn-sm w-100">В каталог</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4">
+                <div class="card build-card">
+                  <div class="card-body">
+                    <h3 class="card-title">Standard</h3>
+                    <p class="card-text text-muted">RTX 4070 + i5-14600K</p>
+                    <p class="build-price">180 000 ₽</p>
+                    <a href="catalog.html" class="btn btn-synth btn-sm w-100">В каталог</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row g-4 justify-content-center">
+              <div class="col-sm-6 col-lg-4">
+                <div class="card build-card">
+                  <div class="card-body">
+                    <h3 class="card-title">Budget</h3>
+                    <p class="card-text text-muted">RTX 4060 + i5-13400</p>
+                    <p class="build-price">120 000 ₽</p>
+                    <a href="catalog.html" class="btn btn-synth btn-sm w-100">В каталог</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4">
+                <div class="card build-card">
+                  <div class="card-body">
+                    <span class="build-badge">Creator</span>
+                    <h3 class="card-title">Creator</h3>
+                    <p class="card-text text-muted">RTX 4080 + Ryzen 9 7950X</p>
+                    <p class="build-price">320 000 ₽</p>
+                    <a href="catalog.html" class="btn btn-synth btn-sm w-100">В каталог</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4">
+                <div class="card build-card">
+                  <div class="card-body">
+                    <h3 class="card-title">Compact</h3>
+                    <p class="card-text text-muted">RTX 4070 + i7 Mini-ITX</p>
+                    <p class="build-price">220 000 ₽</p>
+                    <a href="catalog.html" class="btn btn-synth btn-sm w-100">В каталог</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row g-4 justify-content-center">
+              <div class="col-sm-6 col-lg-4">
+                <div class="card build-card">
+                  <div class="card-body">
+                    <h3 class="card-title">Gaming AMD</h3>
+                    <p class="card-text text-muted">RX 7900 XTX + Ryzen 9</p>
+                    <p class="build-price">260 000 ₽</p>
+                    <a href="catalog.html" class="btn btn-synth btn-sm w-100">В каталог</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4">
+                <div class="card build-card">
+                  <div class="card-body">
+                    <h3 class="card-title">Streaming</h3>
+                    <p class="card-text text-muted">RTX 4070 + i7-14700K</p>
+                    <p class="build-price">240 000 ₽</p>
+                    <a href="catalog.html" class="btn btn-synth btn-sm w-100">В каталог</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4">
+                <div class="card build-card">
+                  <div class="card-body">
+                    <h3 class="card-title">Workstation</h3>
+                    <p class="card-text text-muted">RTX 4090 + i9 + 64GB</p>
+                    <p class="build-price">520 000 ₽</p>
+                    <a href="catalog.html" class="btn btn-synth btn-sm w-100">В каталог</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev carousel-control-builds" type="button" data-bs-target="#buildsCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next carousel-control-builds" type="button" data-bs-target="#buildsCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+        <div class="carousel-indicators carousel-indicators-builds">
+          <button type="button" data-bs-target="#buildsCarousel" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#buildsCarousel" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#buildsCarousel" data-bs-slide-to="2"></button>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="catalog.html" class="btn btn-outline-light btn-lg">Смотреть весь каталог</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="configurator-cta py-5">
+    <div class="container-1440 text-center">
+      <h2 class="section-title mb-3">Соберите свою конфигурацию</h2>
+      <p class="text-muted mb-4">Выбирайте комплектующие. Цена пересчитывается в реальном времени.</p>
+      <a href="configurator.html" class="hero-cta">Открыть конфигуратор</a>
+    </div>
+  </section>
+
+  <footer class="footer py-4">
+    <div class="container-1440 text-center text-muted">
+      SYNTH — премиальные ПК под заказ
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

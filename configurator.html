@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Конфигуратор — SYNTH</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="header header-raycast">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="header-inner">
+        <a class="navbar-brand logo" href="index.html">SYNTH</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#headerNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="headerNav">
+          <div class="navbar-nav">
+            <a class="nav-link" href="index.html">Главная</a>
+            <a class="nav-link" href="catalog.html">Каталог</a>
+            <a class="nav-link active" href="configurator.html">Конфигуратор</a>
+            <a class="nav-link" href="faq.html">FAQ</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="configurator-layout">
+    <div class="configurator-grid container-1440">
+      <aside class="config-left">
+        <div class="config-total config-total-left">
+          <div class="config-total-label">ИТОГО</div>
+          <div class="config-total-value" id="totalValueLeft">0 ₽</div>
+          <div class="config-progress"><div class="config-progress-bar" id="progressBar" style="width: 0%"></div></div>
+        </div>
+        <ul class="config-steps">
+          <li class="config-step" data-category="case"><span class="step-num">1</span> Корпус <span class="step-active" style="display:none">[АКТИВНО]</span></li>
+          <li class="config-step" data-category="cpu"><span class="step-num">2</span> Процессор <span class="step-active" style="display:none">[АКТИВНО]</span></li>
+          <li class="config-step" data-category="mb"><span class="step-num">3</span> Материнская плата <span class="step-active" style="display:none">[АКТИВНО]</span></li>
+          <li class="config-step active" data-category="gpu"><span class="step-num">4</span> Видеокарта <span class="step-active">[АКТИВНО]</span></li>
+          <li class="config-step" data-category="ram"><span class="step-num">5</span> Память <span class="step-active" style="display:none">[АКТИВНО]</span></li>
+          <li class="config-step" data-category="cooling"><span class="step-num">6</span> Охлаждение <span class="step-active" style="display:none">[АКТИВНО]</span></li>
+          <li class="config-step" data-category="storage"><span class="step-num">7</span> Накопитель <span class="step-active" style="display:none">[АКТИВНО]</span></li>
+          <li class="config-step" data-category="psu"><span class="step-num">8</span> Блок питания <span class="step-active" style="display:none">[АКТИВНО]</span></li>
+        </ul>
+      </aside>
+
+      <section class="config-center config-center-sticky">
+        <div class="config-visual" id="configCenterVisual">
+          <div class="config-selected-tip d-none" id="configSelectedTip"></div>
+          <div class="config-pc-placeholder config-selected-show">
+            <div class="config-selected-photo" id="configSelectedPhoto">
+              <div class="config-selected-placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" viewBox="0 0 16 16"><path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/><path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/></svg>
+                <span>Выберите комплектующее</span>
+              </div>
+              <img id="configSelectedImg" src="" alt="" class="d-none">
+            </div>
+            <div class="config-selected-name" id="configSelectedName"></div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="config-right">
+        <div class="config-total config-total-right">
+          <div class="config-total-label">ИТОГО</div>
+          <div class="config-total-value" id="totalValueRight">0 ₽</div>
+        </div>
+        <div class="config-prefilter d-none" id="configPrefilter"></div>
+        <div class="config-recommendations d-none" id="configRecommendations"></div>
+        <div class="config-gallery-title">КОМПЛЕКТУЮЩИЕ</div>
+        <div class="config-gallery" id="partsContainer">
+        </div>
+        <a href="#order" class="btn btn-order">ЗАКАЗАТЬ ШЕДЕВР</a>
+      </aside>
+    </div>
+  </main>
+
+  <section class="order-form py-5" id="order">
+    <div class="container-1440">
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+          <h2 class="section-title text-center mb-4">Оформить заказ</h2>
+          <div class="card order-card">
+            <div class="card-body p-4">
+              <form id="orderForm">
+                <div class="mb-3">
+                  <label class="form-label">Имя</label>
+                  <input type="text" class="form-control form-control-dark" placeholder="Ваше имя" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control form-control-dark" placeholder="email@example.com" required>
+                </div>
+                <div class="mb-4">
+                  <label class="form-label">Телефон</label>
+                  <input type="tel" class="form-control form-control-dark" placeholder="+7 (999) 123-45-67" required>
+                </div>
+                <button type="submit" class="btn btn-synth w-100">Отправить</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="successToast" class="toast" role="alert">
+      <div class="toast-header bg-success text-white">
+        <strong class="me-auto">Успешно!</strong>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+      </div>
+      <div class="toast-body">Заказ отправлен. Мы свяжемся с вами скоро!</div>
+    </div>
+  </div>
+
+  <footer class="footer py-4">
+    <div class="container-1440 text-center text-muted">
+      SYNTH — цифровой бутик премиальных ПК
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/configurator.js"></script>
+</body>
+</html>
