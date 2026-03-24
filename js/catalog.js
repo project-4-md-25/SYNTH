@@ -333,6 +333,35 @@ function filterProducts() {
   renderProducts(filtered);
 }
 
+var filterMap = {
+  cpu: ['filterCpu', 'filterSocket', 'filterPrice'],
+  motherboard: ['filterSocket', 'filterPrice'],
+  gpu: ['filterGpu', 'filterPrice'],
+  ram: ['filterRam', 'filterPrice'],
+  cooling: ['filterCoolingType', 'filterPrice'],
+  storage: ['filterStorageType', 'filterPrice'],
+  builds: ['filterCpu', 'filterGpu', 'filterPrice'],
+  all: ['filterCpu', 'filterGpu', 'filterRam', 'filterSocket', 'filterStorageType', 'filterCoolingType', 'filterPrice']
+};
+
+function updateFilterVisibility() {
+  var allowed = filterMap[activeTab] || filterMap['all'];
+  var allFilterIds = ['filterCpu', 'filterGpu', 'filterRam', 'filterSocket', 'filterStorageType', 'filterCoolingType', 'filterPrice'];
+  allFilterIds.forEach(function (id) {
+    var collapseEl = document.getElementById(id);
+    if (!collapseEl) return;
+    var item = collapseEl.closest('.accordion-item');
+    if (!item) return;
+    if (allowed.indexOf(id) >= 0) {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+      var bsCollapse = bootstrap.Collapse.getInstance(collapseEl);
+      if (bsCollapse) bsCollapse.hide();
+    }
+  });
+}
+
 function resetSidebarFilters() {
   var cpuAll = document.querySelector('input[name="cpu"][value="all"]');
   var gpuAll = document.querySelector('input[name="gpu"][value="all"]');
@@ -352,8 +381,9 @@ function onSearchInput() {
     if (tabsEl) {
       tabsEl.querySelectorAll('.nav-link').forEach(function (t) { t.classList.remove('active'); t.classList.toggle('active', t.getAttribute('data-tab') === 'all'); });
     }
+    updateFilterVisibility();
   }
-  if (val.length < 2) {
+  if (val.length < 3) {
     hideSuggestions();
     filterProducts();
     return;
@@ -362,7 +392,7 @@ function onSearchInput() {
     const list = getSearchSuggestions(val);
     showSuggestions(list);
     filterProducts();
-  }, 150);
+  }, 1000);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -390,9 +420,11 @@ document.addEventListener('DOMContentLoaded', function () {
       activeTab = btn.getAttribute('data-tab');
       tabsEl.querySelectorAll('.nav-link').forEach(function (t) { t.classList.remove('active'); });
       btn.classList.add('active');
+      updateFilterVisibility();
       filterProducts();
     });
   }
+  updateFilterVisibility();
 
   const searchInput = document.getElementById('searchInput');
   searchInput?.addEventListener('input', onSearchInput);

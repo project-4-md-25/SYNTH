@@ -1,6 +1,6 @@
 let componentsDB = null;
 let selectedParts = {};
-let activeCategory = 'gpu';
+let activeCategory = 'case';
 const maxTotal = 600000;
 let configFilter = { cpu: null, gpu: null, cooling: null };
 
@@ -249,15 +249,39 @@ function selectPart(card) {
     renderGallery('cooling');
   }
   updateTotal();
-  updateCenterVisual();
+  setActiveStep(activeCategory);
 }
 
 function setActiveStep(category) {
   activeCategory = category;
   document.querySelectorAll('.config-step').forEach(s => {
-    s.classList.toggle('active', s.dataset.category === category);
-    const label = s.querySelector('.step-active');
-    if (label) label.style.display = s.dataset.category === category ? 'inline' : 'none';
+    var cat = s.dataset.category;
+    var isActive = cat === category;
+    var isDone = !!selectedParts[cat];
+
+    s.classList.remove('active', 'collapsed-step', 'done-step');
+
+    if (isActive) {
+      s.classList.add('active');
+    } else if (isDone) {
+      s.classList.add('done-step');
+    } else {
+      s.classList.add('collapsed-step');
+    }
+
+    var label = s.querySelector('.step-active');
+    if (label) label.style.display = isActive ? 'inline' : 'none';
+
+    var chosenEl = s.querySelector('.step-chosen');
+    if (chosenEl) {
+      if (isDone && !isActive) {
+        var shortName = selectedParts[cat].name || '';
+        if (shortName.length > 25) shortName = shortName.substring(0, 25) + '…';
+        chosenEl.textContent = shortName;
+      } else {
+        chosenEl.textContent = '';
+      }
+    }
   });
   renderGallery(category);
   updateCenterVisual();
@@ -289,7 +313,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     step.addEventListener('click', () => setActiveStep(step.dataset.category));
   });
 
-  setActiveStep('gpu');
+  setActiveStep('case');
   updateTotal();
 
   document.getElementById('orderForm')?.addEventListener('submit', (e) => {
