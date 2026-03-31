@@ -84,12 +84,11 @@ npm run db:seed
 
 ### 5. Сборка на Vercel
 
-В проекте уже есть:
+- **`vercel.json`:** `buildCommand` запускает `prisma generate` и **`scripts/copy-static-to-public.js`** — в **`public/`** копируются HTML, `css/`, `js/`, `img/`, `data/`, `atribut/`. **`outputDirectory`: `public`** — так требует Vercel для пресета без фреймворка (иначе ошибка про отсутствие `public`).
+- Папка **`api/`** в корне репо → serverless `components`, `builds`, `contact` (не копируется в `public`).
+- В `schema.prisma` для рантайма Vercel указан **`rhel-openssl-3.0.x`**.
 
-- **`postinstall` / `vercel-build`:** `prisma generate` — на билде генерируется клиент под Linux (в `schema.prisma` указан **`rhel-openssl-3.0.x`** для serverless Vercel).
-- Папка **`api/`** → serverless-функции `components`, `builds`, `contact`.
-
-Отдельный «билд статики» не нужен: HTML/CSS/JS и папка `atribut/` уезжают как есть. Убедись, что картинки **закоммичены** в репо (или потом обнови URL в БД на CDN).
+Папка **`public/`** генерируется при билде и в **`.gitignore`** — в репозиторий не коммитится. Картинки лежат в **`atribut/`** в репо и попадают в деплой через копирование.
 
 ### 6. Проверка после деплоя
 

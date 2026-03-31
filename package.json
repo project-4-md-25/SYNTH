@@ -6,7 +6,7 @@
   },
   "scripts": {
     "postinstall": "prisma generate",
-    "vercel-build": "prisma generate",
+    "vercel-build": "prisma generate && node scripts/copy-static-to-public.js",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate deploy",
     "db:seed": "node prisma/seed.js"
